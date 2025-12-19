@@ -19,6 +19,7 @@ public class Food implements PricedItem<Integer>{
     }
 
     public String toString(){
+
         System.out.println(name + ": " + description + " Price: " + price);
     }
 }
