@@ -22,11 +22,32 @@ public class FoodMenu {
         sb.append("Menu:\n");
 
         for (int i = 0; i < menu.size(); i++){
-            sb.append(i)
+            sb.append(i+1)
                     .append(". ")
                     .append(menu.get(i))
                     .append("\n");
         }
         return sb.toString();
+    }
+
+    public Food getFood(int index){
+        try{
+            return menu.get(index);
+        }
+        catch (IndexOutOfBoundsException e) {
+            System.out.println("Out of menu bounds");
+            return null;
+        }
+    }
+
+    public Food getLowestCostFood(){
+        int price 10000;
+        Food cheapest = menu.get(0)00;
+        for (food Food : menu){
+            if (food.getPrice() < cheapest.getPrice()){
+                cheapest = food;
+            }
+        }
+        return cheapest;
     }
 }
