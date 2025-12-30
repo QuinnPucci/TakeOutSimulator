@@ -18,6 +18,14 @@ public class Food implements PricedItem<Integer>{
         this.price = price;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
+    public String getDescription(){
+        return this.description;
+    }
+
     public String toString(){
 
         System.out.println(name + ": " + description + " Price: " + price);

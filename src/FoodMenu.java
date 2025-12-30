@@ -15,4 +15,18 @@ public class FoodMenu {
         menu.add(pizza);
         menu.add(pineapple);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Menu:\n");
+
+        for (int i = 0; i < menu.size(); i++){
+            sb.append(i)
+                    .append(". ")
+                    .append(menu.get(i))
+                    .append("\n");
+        }
+        return sb.toString();
+    }
 }
