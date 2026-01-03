@@ -32,8 +32,32 @@ public class TakeOutSimulator{
 
     boolean shouldSimulate() {
         String userPrompt = " type '1' to proceed with simulation, '0' to exit"
-        try {
+        UserInputRetriever<Boolean> retriever = new UserInputRetriever<Boolean>() {
+            @Override
+            public Boolean produceOutput(int selection) throws IllegalArgumentException{
+                if (selection == 0) {
+                    return false;
+                }
 
+                if (selection == 1) {
+                    Food lowestCostFood = menu.getLowestCostFood();
+                    return customer.getMoney() >= lowestCostFood.getPrice();
+                }
+
+                throw new IllegalArgumentException("Selection must be 0 or 1.");
+            }
+        }
+        return getResponse(userPrompt, retriever);
+    }
+
+    Food getMenuSelection(){
+        String userPrompt = "Choose a menu item: "
+
+        UserInputRetriever<Integer> retriever = new UserInputRetriever<Integer>() {
+            @Override
+            public Food produceOutput(int selection) throws IllegalArgumentException{
+
+            }
         }
     }
 
